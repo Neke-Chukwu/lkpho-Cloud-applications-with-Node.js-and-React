@@ -7,8 +7,9 @@
  // Define the request listener function
  const requestListener = function (req, res) {
      res.writeHead(200); // Set the status code to 200 (OK)
-     let dateVal = today.getDate(); // Get the current date from the 'today' module
- 
+     //let dateVal = today.getDate(); // Get the current date from the 'today' module
+     let dateString = today.getDate(); // Get the current date string from the 'today' module
+    let dateVal = new Date(dateString); // Parse the string into a Date object
      // Determine the appropriate greeting based on the current time
      let greeting = "It is still not morning";
      if (dateVal.getHours() > 6 && dateVal.getHours() < 12) {
@@ -26,7 +27,7 @@
  };
  
  // Define the port number
- const port = 8080;
+ const port = 8000;
  
  // Create an HTTP server using the request listener function
  const server = http.createServer(requestListener);
